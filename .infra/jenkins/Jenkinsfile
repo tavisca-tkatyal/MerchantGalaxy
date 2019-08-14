@@ -1,18 +1,15 @@
-pipeline {
+    pipeline {
     agent any
     stages {
         stage('Build') {
-             steps {
-		     sh './chmod +x ./gradle'
-                sh './gradlew build',
-            label: "Running Unit Test Cases"
-			}
-		}
-        stage('Test')
-        {
             steps {
-                sh './gradle test',
-            label: "Running Unit Test Cases"
+                sh 'chmod +x ./gradlew'
+                sh './gradlew build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './gradlew test'
             }
         }
         stage('Static Code Analysis')
@@ -43,11 +40,6 @@ pipeline {
             }
         }
     }
-	post
-	{
-		always
-		{
-			deleteDir()
-		}
-	}
+    
+   
 }
