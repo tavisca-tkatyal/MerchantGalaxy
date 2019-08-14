@@ -2,13 +2,14 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
+             steps {
                 sh script: '''
-                    echo "I am in build step"
+                    echo "I am in Test step"
+					gradlew build
                 ''',
-            label: "Building Project"
-            }
-        }
+            label: "Running Unit Test Cases"
+			}
+		}
         stage('Test')
         {
             steps {
@@ -54,4 +55,3 @@ pipeline {
 		}
 	}
 }
-
