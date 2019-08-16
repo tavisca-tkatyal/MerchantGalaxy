@@ -32,15 +32,7 @@
                 }
             }
         }
-        stage('Publish DockerImage')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Pubishing DockerImage ="
-                ''',
-            label: "Publishing Docker Image"
-            }
-        }
+        
     }
     
    
