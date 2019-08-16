@@ -30,7 +30,7 @@
                  sh 'docker run merchantGalaxy'
              
             }
-        }'
+        }
         stage('Publish DockerImage')	      
         {	        
                     steps {
