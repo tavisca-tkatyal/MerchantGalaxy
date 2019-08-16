@@ -15,21 +15,21 @@
         stage('Static Code Analysis')
         {
             steps {
+                sh script: '''
+                    echo "I am Sonarqube Scan"
+                ''',
+            label: "static code analysis"
+            }
+        }
+        stage('Build DockerImage')
+        {
+             steps {
                 echo 'Starting to build docker image'
 
                 script {
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                     customImage.push()
                 }
-            }
-        }
-        stage('Build DockerImage')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Building DockerImage ="
-                ''',
-            label: "Building Docker Image"
             }
         }
         stage('Publish DockerImage')
