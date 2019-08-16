@@ -25,7 +25,6 @@
         {
              steps {
                 echo 'Starting to build docker image'
-                sh ' cd   .infra/docker'
                  sh 'docker build -t merchant . '
                  sh 'docker run merchant'
              
