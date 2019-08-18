@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tavisca.InputParserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-08-14T04:13:51" hostname="RENTLAPT008" time="0.003">
+<testsuite name="com.tavisca.InputParserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-08-14T04:49:24" hostname="RENTLAPT008" time="0.002">
   <properties/>
-  <testcase name="canParseWordToRomanNumeral()" classname="com.tavisca.InputParserTest" time="0.001"/>
+  <testcase name="canParseWordToRomanNumeral()" classname="com.tavisca.InputParserTest" time="0.0"/>
   <testcase name="canParseWordsToManyAndMuchStatement()" classname="com.tavisca.InputParserTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

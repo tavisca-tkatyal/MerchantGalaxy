@@ -1,4 +1,4 @@
-    pipeline {
+pipeline {
     agent any
     stages {
         stage('Build') {
@@ -16,30 +16,31 @@
         {
             steps {
                 sh script: '''
-                    echo "I am in Sonarqube scan"
+                    echo "I am Sonarqube Scan"
                 ''',
-            label: "Running Sonarqube Scan"
+            label: "static code analysis"
             }
         }
         stage('Build DockerImage')
         {
-            steps {
-                sh script: '''
-                    echo "I am Building DockerImage ="
-                ''',
-            label: "Building Docker Image"
+             steps {
+            sh script: '''
+                docker build -t "merchantgalaxy" -f .infra/docker/Dockerfile .
+                '''
             }
         }
-        stage('Publish DockerImage')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Pubishing DockerImage ="
-                ''',
-            label: "Publishing Docker Image"
+        stage('Publish DockerImage')	      
+        {	        
+                     steps {
+                sh "docker login -u tapsi -p tapsi@123"
+                sh "docker tag merchantgalaxy:latest tapsi/merchantgalaxy:latest"
+                sh "docker push tapsi/merchantgalaxy:latest"
             }
         }
     }
-    
-   
+    post{
+        always{
+            deleteDir()
+    }
+    }
 }
