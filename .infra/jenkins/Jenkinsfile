@@ -31,14 +31,16 @@
         }
         stage('Publish DockerImage')	      
         {	        
-                    steps {
-                      sh script: '''
-                                        echo "I am Pubishing DockerImage ="
-                           ''',
-            	            label: "Publishing Docker Image"
-                    } 
-          }
+                     steps {
+                sh "docker login -u tapsi -p tapsi@123"
+                sh "docker tag merchantgalaxy:latest tapsi/merchantgalaxy:latest"
+                sh "docker push tapsi/merchantgalaxy:latest"
+            }
+        }
     }
-        
+    post{
+        always{
+            deleteDir()
     }
-    
+    }
+}
