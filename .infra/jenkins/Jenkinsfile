@@ -24,10 +24,9 @@
         stage('Build DockerImage')
         {
              steps {
-                echo 'Starting to build docker image'
-                 sh 'docker build -t merchant . '
-                 sh 'docker run merchant'
-             
+            sh script: '''
+                docker build -t "MerchantGalaxy" -f Dockerfile .
+                '''
             }
         }
         stage('Publish DockerImage')	      
