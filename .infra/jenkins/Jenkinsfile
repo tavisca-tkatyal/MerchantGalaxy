@@ -25,7 +25,7 @@
         {
              steps {
             sh script: '''
-                docker build -t "merchantgalaxy" -f .infra/docker/Dockerfile
+                docker build -t "merchantgalaxy" -f .infra/docker/Dockerfile .
                 '''
             }
         }
