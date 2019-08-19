@@ -46,4 +46,8 @@ tasks.named<Test>("hidden-tests") {
         showExceptions = true
         events("passed", "skipped", "failed")
     }
+    val jar by tasks.getting(Jar::class) {
+        manifest {
+            attributes["Main-Class"] = "com.tavisca."
+        }
 }
