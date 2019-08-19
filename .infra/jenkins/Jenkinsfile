@@ -12,15 +12,16 @@
                 sh './gradlew test'
             }
         }
-        stage('Static Code Analysis')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Sonarqube Scan"
-                ''',
-            label: "static code analysis"
-            }
-        }
+        stage('Building SONAR') {
+        		steps {
+            			echo 'Using sonarQube to do static code analysis'
+            			sh "  ./gradlew sonarqube \
+            		        -Dsonar.projectKey=tavisca-tkatyal_merchantgalaxy \
+                  		-Dsonar.organization=tavisca-tkatyal \
+                  		-Dsonar.host.url=https://sonarcloud.io \
+                  		-Dsonar.login=885747cd20b4cc92e0494025f0340464da150c3e"
+        		}
+        	}
         stage('Build DockerImage')
         {
              steps {
