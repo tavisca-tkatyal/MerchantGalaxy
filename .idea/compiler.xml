@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="MerchantGalaxy.main" target="1.10" />
-      <module name="MerchantGalaxy.test" target="1.10" />
+      <module name="MerchantGalaxy.main" target="1.8" />
+      <module name="MerchantGalaxy.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

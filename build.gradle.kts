@@ -48,6 +48,7 @@ tasks.named<Test>("hidden-tests") {
     }
     val jar by tasks.getting(Jar::class) {
         manifest {
-            attributes["Main-Class"] = "com.tavisca."
+            attributes["Main-Class"] = "com.tavisca.WordToRomanParser.java"
         }
+    }
 }
